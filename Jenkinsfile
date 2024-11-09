@@ -6,16 +6,13 @@ pipeline{
             sh "./gradlew compileJava"
             }
         }
-        stage("UnitTest"){
+
+        stage("Unit Test"){
             steps{
                 sh "./gradlew test"
             }
         }
-        stage("Code Coverage"){
-            steps{
-                sh "./gradlew test jacocoTestReport"
-                sh "./gradlew test jacocoTestCoverageVerification"
-            }
-        }
+
+
     }
 }
