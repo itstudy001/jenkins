@@ -5,6 +5,9 @@ plugins {
     id 'jacoco'
 }
 
+
+
+
 jacocoTestCoverageVerification{
     violationRules{
         rule{
@@ -14,8 +17,10 @@ jacocoTestCoverageVerification{
         }
     }
 }
+
+
 group = 'com.adamsoft'
-version = '0.0.1-SNAPSHOT'j
+version = '0.0.1-SNAPSHOT'
 
 java {
     toolchain {
