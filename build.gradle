@@ -3,8 +3,15 @@ plugins {
     id 'org.springframework.boot' version '3.3.5'
     id 'io.spring.dependency-management' version '1.1.6'
     id 'jacoco'
+    id 'checkstyle'
 }
 
+checkstyle {
+    maxWarnings = 0
+    configFile = file("${rootDir}/config/checkstyle.xml")
+    configProperties = ["suppressionFile": "${rootDir}/config/naver-checkstyle-suppressions.xml"]
+    toolVersion = "8.42"
+}
 
 
 
