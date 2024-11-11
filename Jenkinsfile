@@ -50,6 +50,12 @@ pipeline{
            }
        }
 
+       stage("gradle build"){
+            steps{
+                sh "./gradlew clean build"
+            }
+       }
+
        stage('Build & Push Docker Image') {
            steps {
                echo 'Build & Push Docker Image'
