@@ -1,6 +1,8 @@
 pipeline{
     agent any
-
+    environment{
+        DOCKERHUB_CREDENTIALS = credentials('ggnagpae1-dockerhub')
+    }
 
     stages{
         stage('Set Variables') {
@@ -67,9 +69,7 @@ pipeline{
 
        stage('Push') {
                   steps {
-                      withCredentials([string(credentialsId: 'dockerhub', variable: '')]) {
-                          docker.push("ggnagpae1/jenkins")
-                      }
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                   }
               }
 
