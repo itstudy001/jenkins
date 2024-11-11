@@ -34,14 +34,14 @@ pipeline{
                         sh "./gradlew test jacocoTestCoverageVerification"
                     }
                 }
-
-    }
-
-    stage('Build image') {
+        stage('Build image') {
              app = docker.build("ggnagpae1/jenkins")
-         }
-         stage('Push image') {
+        }
+
+        stage('Push image') {
              docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
                  app.push("latest")
+            }
          }
+    }
 }
