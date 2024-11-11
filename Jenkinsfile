@@ -59,7 +59,9 @@ pipeline{
        stage('Build & Push Docker Image') {
            steps {
                echo 'Build & Push Docker Image'
-               app = docker.build("ggnagpae1/jenkins")
+               script{
+                    app = docker.build("ggnagpae1/jenkins")
+               }
            }
        }
     }
