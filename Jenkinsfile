@@ -1,5 +1,19 @@
 pipeline{
     agent any
+stage('Set Variables') {
+    steps {
+        echo 'Set Variables'
+        script {
+
+            // DOCKER
+            DOCKER_HUB_URL = 'registry.hub.docker.com'
+            DOCKER_HUB_FULL_URL = 'https://' + DOCKER_HUB_URL
+            DOCKER_HUB_CREDENTIAL_ID = 'DOCKER_HUB_CREDENTIAL'
+            DOCKER_IMAGE_NAME =  OPERATION_ENV + '-' + PROJECT_NAME
+        }
+
+    }
+}
 
     stages{
         stage("Compile"){
@@ -35,5 +49,8 @@ pipeline{
            }
        }
 
+        stage('Build image') {
+
+        }
     }
 }
