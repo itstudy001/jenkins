@@ -68,13 +68,10 @@ pipeline{
         steps {
             echo 'Build & Push Docker Image'
                 script{
-                    docker.withRegistry(DOCKER_HUB_FULL_URL, DOCKER_HUB_CREDENTIAL_ID){
-                        app.push(env.BUILD_ID)
-                        app.push('latest')
+                        sh docker login
                     }
                 }
             }
        }
-
     }
 }
