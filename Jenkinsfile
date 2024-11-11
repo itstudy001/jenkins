@@ -64,14 +64,6 @@ pipeline{
                }
            }
        }
-       stage('Push') {
-        steps {
-            echo 'Build & Push Docker Image'
-                script{
-                        sh docker login
-                    }
-                }
-            }
-       }
+
     }
 }
