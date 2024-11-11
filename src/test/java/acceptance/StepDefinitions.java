@@ -1,4 +1,4 @@
-package com.adamsoft.jenkins;
+package acceptance;
  
 import io.cucumber.java.en.Given; 
 import io.cucumber.java.en.Then; 

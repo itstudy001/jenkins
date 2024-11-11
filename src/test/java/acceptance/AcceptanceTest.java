@@ -1,4 +1,4 @@
-package com.adamsoft.jenkins;
+package acceptance;
  
 import io.cucumber.junit.CucumberOptions; 
 import io.cucumber.junit.Cucumber; 
