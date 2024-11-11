@@ -25,23 +25,15 @@ pipeline{
             }
         }
         stage("Static Code Analysis"){
-                    steps{
-                        sh "./gradlew checkstyleMain"
+            steps{
+                sh "./gradlew checkstyleMain"
                         publishHTML(target: [
                                     reportDir: 'build/reports/checkstyle/',
                                     reportFiles: 'main.html',
                                     reportName: "Checkstyle Report"])
                         sh "./gradlew test jacocoTestCoverageVerification"
-                    }
-                }
-        stage('Build image') {
-             app = docker.build("ggnagpae1/jenkins")
-        }
+           }
+       }
 
-        stage('Push image') {
-             docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-                 app.push("latest")
-            }
-         }
     }
 }
