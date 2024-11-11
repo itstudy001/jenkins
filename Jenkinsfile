@@ -42,6 +42,6 @@ pipeline{
          }
          stage('Push image') {
              docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-                 app.push("latest") #image에 latest를 태그로 붙인 후 Push
+                 app.push("latest")
          }
 }
