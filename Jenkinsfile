@@ -67,9 +67,8 @@ pipeline{
 
        stage('Push') {
                   steps {
-                      echo 'Push Image'
-                      script{
-                           docker login
+                      withCredentials([string(credentialsId: 'dockerhub', variable: '')]) {
+                          docker.push("ggnagpae1/jenkins")
                       }
                   }
               }
