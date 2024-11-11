@@ -87,7 +87,7 @@ pipeline{
                 sleep 60
                 sh 'chmod +x acceptance_test.sh && ./acceptance_test.sh'
                 sleep 30
-                sh './gradlew accepanceTest -Dcalculator.url=http://54.180.146.200:8765'
+                sh './gradlew acceptanceTest -Dcalculator.url=http://54.180.146.200:8765'
 
             }
        }
