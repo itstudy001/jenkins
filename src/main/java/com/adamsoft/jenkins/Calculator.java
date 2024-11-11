@@ -8,6 +8,7 @@ public class Calculator
 
 	public int sum(int a, int b)
 	{
+		System.out.println(a);
 		return a + b;
 	}
 }
