@@ -49,9 +49,5 @@ pipeline{
                         sh "./gradlew test jacocoTestCoverageVerification"
            }
        }
-
-        stage('Build image') {
-
-        }
     }
 }
