@@ -59,20 +59,7 @@ pipeline{
        stage('Build & Push Docker Image') {
            steps {
                echo 'Build & Push Docker Image'
-               withCredentials([usernamePassword(
-                       credentialsId: DOCKER_HUB_CREDENTIAL_ID,
-                       usernameVariable: 'ggnagpae1',
-                       passwordVariable: 'Dokki1025!')]) {
-
-                   script {
-                       docker.withRegistry(DOCKER_HUB_FULL_URL,
-                                           DOCKER_HUB_CREDENTIAL_ID) {
-                       app = docker.build('ggnagpae1' + '/' + 'jenkins')
-                       app.push(env.BUILD_ID)
-                       app.push('latest')
-                       }
-                   }
-               }
+               app = docker.build("ggnagpae1/jenkins")
            }
        }
     }
