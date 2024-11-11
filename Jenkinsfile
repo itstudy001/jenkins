@@ -58,12 +58,21 @@ pipeline{
 
        stage('Build') {
            steps {
-               echo 'Build & Push Docker Image'
+               echo 'Build Image'
                script{
                     app = docker.build("ggnagpae1/jenkins")
                }
            }
        }
+
+       stage('Push') {
+                  steps {
+                      echo 'Push Image'
+                      script{
+                           docker login
+                      }
+                  }
+              }
 
     }
 }
