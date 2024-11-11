@@ -60,7 +60,7 @@ pipeline{
 
        stage('Build') {
            steps {
-               sh 'docker.build("ggnagpae1/jenkins")'
+               sh 'docker build -t ggnagpae1/jenkins .'
            }
        }
 
